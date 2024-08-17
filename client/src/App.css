@@ -43,3 +43,32 @@
 .read-the-docs {
   color: #888;
 }
+
+.pokemon {
+  width: 350px;
+  height: 350px;
+  border: 1px solid red;
+}
+
+.sound-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.sound-icon {
+  font-size: 25px;
+  color: rgb(51, 50, 50);
+}
+
+.gear-icon {
+  color: rgb(192, 191, 191);
+  font-size: 25px;
+}
+
+.setting {
+  border: 1px solid black;
+}
+
+.hidden {
+  display: none;
+}
