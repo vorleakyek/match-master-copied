@@ -46,6 +46,7 @@ export async function addLevelAndTheme(
   };
 
   const res = await fetch('/api/level-and-theme', req);
+  // console.log('Fetch response:', res.status, await res.text());
 
   if (!res.ok) throw new Error(`fetch Error ${res.status}`);
   return await res.json();

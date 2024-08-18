@@ -58,6 +58,17 @@ app.post('/api/auth/sign-up', async (req, res, next) => {
     if (!username || !password) {
       throw new ClientError(400, 'username and password are required fields');
     }
+
+    const checkUserSql = `
+      select "userId"
+      from "users"
+      where "username" = $1
+      `;
+    const checkUserResult = await db.query(checkUserSql, [username]);
+    if (checkUserResult.rows.length > 0) {
+      throw new ClientError(409, 'Username already exists');
+    }
+
     const hashedPassword = await argon2.hash(password);
     const sql = `
       insert into "users" ("username", "hashedPassword")

@@ -7,11 +7,10 @@ drop schema "public" cascade;
 create schema "public";
 
 CREATE TABLE public.users (
-    "userId" serial,
+    "userId" serial primary key,
     "username" text NOT NULL,
     "hashedPassword" text NOT NULL,
     "createdAt" timestamp(6) with time zone DEFAULT now() NOT NULL,
-    primary key ("userId"),
     unique("username")
 );
 
